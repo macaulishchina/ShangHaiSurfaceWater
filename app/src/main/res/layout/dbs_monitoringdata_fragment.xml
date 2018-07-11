@@ -1,0 +1,241 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/icon_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/titlelayout" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/gvkeyvalue_layout" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--所有配置信息布局-->
+    <LinearLayout
+        android:id="@+id/ll_configure"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#4000"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/ll_configure_left"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"></LinearLayout>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_weight="3">
+
+
+            <!--<ScrollView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_above="@+id/ll_monit_bottom">-->
+
+            <!--所有配置信息布局-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_colum_gv"
+                android:orientation="vertical"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp">
+
+                <TextView
+                    android:id="@+id/tv_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="类型"
+                    android:textColor="@color/white" />
+
+
+                <com.sinoyd.Code.View.MyGridView
+                    android:id="@+id/gv_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:horizontalSpacing="5dp"
+                    android:numColumns="2"
+                    android:verticalSpacing="5dp"></com.sinoyd.Code.View.MyGridView>
+
+                <TextView
+                    android:id="@+id/tv_stationname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="类型对应数据"
+                    android:textColor="@color/white" />
+
+                <com.sinoyd.Code.View.MyGridView
+                    android:id="@+id/gv_areabytpye"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:horizontalSpacing="5dp"
+                    android:numColumns="2"
+                    android:verticalSpacing="5dp"></com.sinoyd.Code.View.MyGridView>
+
+                <TextView
+                    android:id="@+id/tv_showstationname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="点位名称"
+                    android:textColor="@color/white" />
+
+                <com.sinoyd.Code.View.MyGridView
+                    android:id="@+id/gv_showstationname"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:horizontalSpacing="5dp"
+                    android:numColumns="2"
+                    android:verticalSpacing="5dp"></com.sinoyd.Code.View.MyGridView>
+
+                <TextView
+                    android:id="@+id/tv_showfactorcategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="展示因子"
+                    android:textColor="@color/white" />
+
+                <com.sinoyd.Code.View.MyGridView
+                    android:id="@+id/gv_showfactorcategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:horizontalSpacing="5dp"
+                    android:numColumns="2"
+                    android:verticalSpacing="5dp"></com.sinoyd.Code.View.MyGridView>
+
+                <TextView
+                    android:id="@+id/tv_showfactor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="对应因子"
+                    android:textColor="@color/white" />
+
+                <com.sinoyd.Code.View.MyGridView
+                    android:id="@+id/gv_showfactor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:horizontalSpacing="5dp"
+                    android:numColumns="2"
+                    android:verticalSpacing="5dp"></com.sinoyd.Code.View.MyGridView>
+
+                <TextView
+                    android:id="@+id/tv_showtestfactor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="参与评价因子"
+                    android:textColor="@color/white" />
+
+                <com.sinoyd.Code.View.MyGridView
+                    android:id="@+id/gv_showtestfactor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:horizontalSpacing="5dp"
+                    android:numColumns="2"
+                    android:verticalSpacing="5dp"></com.sinoyd.Code.View.MyGridView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="时间维度"
+                    android:textColor="@color/white" />
+
+                <include layout="@layout/layout_date_select"></include>
+
+                <TextView
+                    android:id="@+id/tv_showresult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="结果集"
+                    android:textColor="@color/white" />
+
+
+                <com.sinoyd.Code.View.MyGridView
+                    android:id="@+id/gv_showresult"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:horizontalSpacing="5dp"
+                    android:numColumns="2"
+                    android:verticalSpacing="5dp"></com.sinoyd.Code.View.MyGridView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="过滤条件"
+                    android:textColor="@color/white" />
+
+                <com.sinoyd.Code.View.MyGridView
+                    android:id="@+id/gv_Filtrationcondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:horizontalSpacing="5dp"
+                    android:numColumns="2"
+                    android:verticalSpacing="5dp"></com.sinoyd.Code.View.MyGridView>
+
+                <LinearLayout
+                    android:id="@+id/ll_monit_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:id="@+id/tv_cancel"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#3fff"
+                        android:gravity="center"
+                        android:text="重置"
+                        android:textColor="#fff" />
+
+                    <TextView
+                        android:id="@+id/tv_sure"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FED722"
+                        android:gravity="center"
+                        android:text="确定"
+                        android:textColor="#fff" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!--</ScrollView>-->
+
+
+        </ScrollView>
+    </LinearLayout>
+
+
+</RelativeLayout>

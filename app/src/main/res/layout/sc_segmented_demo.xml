@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.sinoyd.frame.views.FrmSegmentedGroup
+        android:id="@+id/segmented_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        segmentedgroup:sc_border_width="1dp"
+        segmentedgroup:sc_checked_text_color="#ffffff"
+        segmentedgroup:sc_corner_radius="5dp"
+        segmentedgroup:sc_tint_color="@color/theme_color">
+
+        <RadioButton
+            android:id="@+id/button_11"
+            style="@style/FrmRadioButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="标签1" />
+
+        <RadioButton
+            android:id="@+id/button_12"
+            style="@style/FrmRadioButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="标签2" />
+    </com.sinoyd.frame.views.FrmSegmentedGroup>
+
+    <com.sinoyd.frame.views.FrmSegmentedGroup
+        android:id="@+id/segmented_group2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        segmentedgroup:sc_border_width="1dp"
+        segmentedgroup:sc_checked_text_color="#ffffff"
+        segmentedgroup:sc_corner_radius="5dp"
+        segmentedgroup:sc_tint_color="#FDBB0B">
+
+        <RadioButton
+            android:id="@+id/button_21"
+            style="@style/FrmRadioButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="标签3" />
+
+        <RadioButton
+            android:id="@+id/button_22"
+            style="@style/FrmRadioButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="标签4" />
+
+        <RadioButton
+            android:id="@+id/button_23"
+            style="@style/FrmRadioButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="标签5" />
+    </com.sinoyd.frame.views.FrmSegmentedGroup>
+
+    <TextView
+        android:id="@+id/tvshow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center" />
+</LinearLayout>

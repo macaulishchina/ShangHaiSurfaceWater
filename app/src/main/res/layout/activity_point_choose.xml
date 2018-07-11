@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/icon_bg"
+    android:orientation="vertical"
+    tools:context="com.sinoyd.Code.Activity.DBS_PointChooseActivity">
+
+    <include layout="@layout/titlelayout" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/itemcolor" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_typearea"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <include layout="@layout/chooselayout" />
+
+        <ListView
+            android:id="@+id/lv_orderlist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"></ListView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ll_shape_bg_gray">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/icon_search" />
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="请输入点位名称"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/gray" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="我的关注"
+            android:textColor="@color/white" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/lv_orderlist2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@null"></ListView>
+
+            <RelativeLayout
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center">
+
+                <ListView
+                    android:id="@+id/lv_orderlistright"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@null"></ListView>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

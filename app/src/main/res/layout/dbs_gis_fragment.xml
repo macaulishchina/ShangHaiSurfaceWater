@@ -1,0 +1,106 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/icon_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/titlelayout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/bmapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#2763A7">
+
+            <ImageView
+                android:id="@+id/iv_off"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:src="@drawable/icon_arrow_to"
+                android:tint="@color/white"></ImageView>
+
+            <LinearLayout
+                android:id="@+id/ll_gis"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_below="@+id/iv_off"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/itemcolor"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:gravity="center"
+                        android:text="站点名称"
+                        android:textColor="@color/white"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:id="@+id/tv_level"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:gravity="center"
+                        android:text="水质等级"
+                        android:textColor="@color/white"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+                </LinearLayout>
+
+
+                <ListView
+                    android:id="@+id/lv_gis"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/ll_gis"
+                    android:divider="@null"></ListView>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</LinearLayout>

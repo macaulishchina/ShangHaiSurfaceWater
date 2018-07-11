@@ -1,0 +1,209 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/icon_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/titlelayout" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/itemcolor" />
+
+    <include layout="@layout/chooselayout" />
+
+    <LinearLayout
+        android:id="@+id/ll_task"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="right"
+            android:paddingBottom="5dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="5dp">
+
+            <LinearLayout
+                android:id="@+id/add_task"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ll_shape_bg_yellow"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:padding="3dp"
+                    android:src="@drawable/icon_add"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/icon_add" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="新建任务"
+                    android:textColor="@color/white"
+                    android:textSize="10dp" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:padding="3dp"
+                    android:src="@drawable/icon_add"
+                    android:visibility="invisible" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/itemcolor"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.3"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="站点名称"
+                    android:textColor="@color/white"
+                    android:textSize="13dp" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/icon_arrow_bot"
+                    android:tint="@color/white" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="任务名称"
+                android:textColor="@color/white"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="时间"
+                android:textColor="@color/white"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="责任人"
+                android:textColor="@color/white"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="状态"
+                android:textColor="@color/white"
+                android:textSize="13dp" />
+
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lv_qualitycontrol"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"></ListView>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_tongji"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_date_select" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/itemcolor"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="运维商"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="数据捕获率"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="出勤率"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="任务完成率"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lv_tongji"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"></ListView>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

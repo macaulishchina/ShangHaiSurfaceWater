@@ -1,0 +1,175 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/icon_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/titlelayout" />
+
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_main_area"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_bg_color"
+            android:button="@null"
+            android:drawableLeft="@drawable/tab_area"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:text="区域"
+            android:textColor="@drawable/tab_text_color" />
+
+        <RadioButton
+            android:id="@+id/rb_main_basin"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_bg_color"
+            android:button="@null"
+            android:drawableLeft="@drawable/tab_basin"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:text="流域"
+            android:textColor="@drawable/tab_text_color" />
+
+        <RadioButton
+            android:id="@+id/rb_main_operation"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_bg_color"
+            android:button="@null"
+            android:drawableLeft="@drawable/tab_operation"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:text="运维商"
+            android:textColor="@drawable/tab_text_color" />
+
+        <RadioButton
+            android:id="@+id/rb_main_attribute"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/tab_bg_color"
+            android:button="@null"
+            android:drawableLeft="@drawable/tab_attribute"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:text="属性"
+            android:textColor="@drawable/tab_text_color" />
+
+
+    </RadioGroup>
+
+    <include layout="@layout/layout_date_select" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:src="@drawable/icon_online" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="在线率"
+                android:textColor="#CCD4E0" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:src="@drawable/icon_hege" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="合格率"
+                android:textColor="#CCD4E0" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:src="@drawable/icon_buhuo" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="捕获率"
+                android:textColor="#CCD4E0" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3" />
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/lv_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:orientation="vertical"></ListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 框架默认标题栏颜色，可自定义 -->
+    <color name="theme_color">#1e90ff</color>
+    <!-- 开始自定义颜色配置 -->
+    <color name="date_color">#fff</color>
+    <color name="gray_80">#333333</color>
+    <color name="gray_60">#666666</color>
+    <color name="titlelbue">#0f82ff</color>
+
+
+    <!--在线率-->
+    <color name="onlinecolors">#4CF5E7</color>
+    <!--合格率-->
+    <color name="hegecolors">#FED722</color>
+    <!--合格率-->
+    <color name="buhuocolors">#6AE749</color>
+
+
+    <!--在线率-->
+    <color name="onlinecolor">#349CB8</color>
+    <!--合格率-->
+    <color name="hegecolor">#78946A</color>
+    <!--合格率-->
+    <color name="buhuocolor">#348486</color>
+
+
+    <color name="gray_al">#55666666</color>
+
+    <color name="gvhui">#3000</color>
+
+    <color name="gvwhite">#5fff</color>
+
+    <color name="gou">#FF9224</color>
+
+    <color name="itemcolor">#3fff</color>
+    <color name="itemcolor2">#0fff</color>
+
+</resources>

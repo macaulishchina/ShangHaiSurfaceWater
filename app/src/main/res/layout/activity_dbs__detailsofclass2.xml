@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/icon_bg"
+    android:orientation="vertical"
+    tools:context="com.sinoyd.Code.Activity.DBS_Detailsofclass2Activity">
+
+    <include layout="@layout/titlelayout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <!--日期-->
+                <TextView
+                    android:id="@+id/tv_timestamp"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center_vertical"
+                    android:text="2017-08-08 10:00"
+                    android:textColor="@color/white" />
+                <!--水质类别-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+
+                    <ImageView
+                        android:id="@+id/iv_grade"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="10dp"
+                                android:gravity="center"
+                                android:text="目标水质类别"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tv_targetGrade"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="10dp"
+                                android:gravity="center"
+                                android:text="水质达标情况"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tv_qualifiedStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="10dp"
+                                android:gravity="center"
+                                android:text="首要污染物"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tv_primaryPollute"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="10dp"
+                                android:gravity="center"
+                                android:text="首要污染物浓度"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tv_primaryPolluteValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="10dp"
+                                android:gravity="center"
+                                android:text="综合污染物指数"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tv_polluteValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center_vertical"
+                    android:text="水质等级说明"
+                    android:textColor="@color/white" />
+                <!--等级颜色-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#4EFFFE"
+                        android:gravity="center"
+                        android:text="I" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#4EFFFE"
+                        android:gravity="center"
+                        android:text="II" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#4BFF00"
+                        android:gravity="center"
+                        android:text="III" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FDFF04"
+                        android:gravity="center"
+                        android:text="IV" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#F67A13"
+                        android:gravity="center"
+                        android:text="V" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#F30115"
+                        android:gravity="center"
+                        android:text="劣V" />
+                </LinearLayout>
+                <!--历史趋势-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:background="#48ABED"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="历史数据>>"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+                <!--柱状图-->
+                <RelativeLayout
+                    android:id="@+id/char1layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/barchart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+                <!--备注-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="("
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="备注："
+                        android:textColor="@color/red" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="pH无量纲，其他参数单位mg/L)"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+                <!--选择因子-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:id="@+id/ll_choose_factor"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/ll_shape_bg">
+
+                        <TextView
+                            android:id="@+id/tv_choose_factor"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:autoSizeTextType="uniform"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="13dp" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:padding="5dp"
+                            android:src="@drawable/icon_arrow_bottom"
+                            android:tint="@color/white" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_choose_factor_unit"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="单位：us/cm"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+                <!--折线图-->
+                <RelativeLayout
+                    android:id="@+id/char2layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/lineChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>
