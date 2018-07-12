@@ -10,6 +10,7 @@ package com.sinoyd.Code.Until
 object Networkrequestaddress {
     var RELEASE: Boolean = false
     var SERVER_URL = ""
+    var HOST_POST = ""
 
     val Formaladdress: String = "http://192.168.11.178:9527/api/v1/mobile/app"
     val HttpurlFormaladdress: String = "http://192.168.11.178:9527"
@@ -19,7 +20,9 @@ object Networkrequestaddress {
 
     init {
         SERVER_URL = if (RELEASE) Formaladdress else Testaddress
+        HOST_POST = if (RELEASE) HttpurlFormaladdress else Httpurltest
     }
+
 
     /**天气预报接口***/
     val GetWeather = "http://apifreelat.market.alicloudapi.com/whapi/json/aliweather/briefforecast3days"
@@ -79,7 +82,7 @@ object Networkrequestaddress {
     val GetResults = SERVER_URL + "/monitoring/results"
 
     /**参与评价因子接口**/
-    val GetPJFactors = "${if (RELEASE) HttpurlFormaladdress else Httpurltest}/api/v1/MovePortApp/AppPort/PJFactors"
+    val GetPJFactors = HOST_POST + "/api/v1/MovePortApp/AppPort/PJFactors"
 
     /**查询监控数据**/
     val GetMonitoringsearch = SERVER_URL + "/monitoring/search"
@@ -87,6 +90,10 @@ object Networkrequestaddress {
     /**任务收发**/
     val GetTaskInfo = SERVER_URL + "/AppTaskInfo"    //?pageSize=10&pageNo=1
 
+    /**上传任务**/
+    val UpLoadTask = SERVER_URL + "/task/BuildTask"   //?Task=&Id=&Time=&Resperson=&Creater=&CreatDateTime=
 
+    /**用户站点信息**/
+    val GroupPointInfo = HOST_POST + "/api/v1/BaseData/PointInfoGroupByOperator"    //?Operator=e2e16546-d663-42e6-9996-9ba632665101
 
 }

@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="点位名称："
+            android:text="任务名称："
             android:textColor="@color/white" />
 
         <LinearLayout
@@ -37,22 +37,15 @@
             android:layout_weight="4"
             android:background="@drawable/ll_shape_bg_gray">
 
-            <TextView
-                android:id="@+id/tv_stationname"
+            <EditText
+                android:background="@null"
+                android:id="@+id/task_add_et_task_name"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="7"
-                android:gravity="left|center"
-                android:text="1111"
-                android:textColor="@color/white" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="5dp"
-                android:src="@drawable/icon_arrow_bot"
-                android:tint="@color/white" />
+                android:layout_height="match_parent"
+                android:gravity="left|center"
+                android:text=""
+                android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>
 
@@ -70,25 +63,35 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="点位类型："
+            android:text="点位名称："
             android:textColor="@color/white" />
 
         <LinearLayout
+            android:id="@+id/task_add_ll_point_name"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:background="@drawable/ll_shape_bg_gray">
 
-            <TextView
-                android:id="@+id/tv_stationtype"
+            <ScrollView
                 android:layout_width="0dp"
+                android:padding="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="7"
-                android:gravity="left|center"
-                android:text="1111"
-                android:textColor="@color/white" />
+                android:layout_weight="7">
+                <TextView
+                    android:layout_margin="0dp"
+                    android:id="@+id/task_add_tv_point_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center"
+                    android:text=""
+                    android:textColor="@color/white" />
+
+            </ScrollView>
+
 
             <ImageView
+                android:id="@+id/task_add_iv_point_name"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -116,66 +119,28 @@
             android:textColor="@color/white" />
 
         <LinearLayout
+            android:id="@+id/task_add_ll_finish_date"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:background="@drawable/ll_shape_bg_gray">
 
             <TextView
-                android:id="@+id/tv_stationtime"
+                android:id="@+id/task_add_tv_finish_date"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="7"
                 android:gravity="left|center"
-                android:text="1111"
+                android:text=""
                 android:textColor="@color/white" />
 
             <ImageView
-                android:id="@+id/iv_task_date"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:padding="5dp"
                 android:src="@drawable/icon_date"
                 android:tint="@color/white" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_weight="2">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center|top"
-            android:text="任务备注："
-            android:textColor="@color/white" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:background="@drawable/ll_shape_bg_gray">
-
-
-            <EditText
-                android:id="@+id/tv_stationtask"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="7"
-                android:background="@null"
-                android:gravity="left|center"
-                android:text="1111"
-                android:textColor="@color/white" />
-
-
         </LinearLayout>
     </LinearLayout>
 
@@ -202,22 +167,15 @@
             android:layout_weight="4"
             android:background="@drawable/ll_shape_bg_gray">
 
-            <TextView
-                android:id="@+id/tv_pereson"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="7"
-                android:gravity="left|center"
-                android:text="1111"
-                android:textColor="@color/white" />
-
-            <ImageView
+            <EditText
+                android:background="@null"
+                android:id="@+id/task_add_tv_deal_man"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="5dp"
-                android:src="@drawable/icon_arrow_bot"
-                android:tint="@color/white" />
+                android:gravity="left|center"
+                android:text=""
+                android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>
 
@@ -244,15 +202,13 @@
             android:layout_weight="4">
 
             <TextView
-                android:id="@+id/tv_publisher"
+                android:id="@+id/task_add_tv_publish_man"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="7"
+                android:layout_weight="1"
                 android:gravity="left|center"
-                android:text="1111"
+                android:text="登入用户"
                 android:textColor="@color/white" />
-
-
         </LinearLayout>
     </LinearLayout>
 
@@ -279,51 +235,21 @@
             android:layout_weight="4">
 
             <TextView
-                android:id="@+id/tv_releasetime"
+                android:id="@+id/task_add_tv_publish_datetime"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="7"
+                android:layout_weight="1"
                 android:gravity="left|center"
-                android:text="1111"
+                android:text="当前时间"
                 android:textColor="@color/white" />
-
-
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_weight="1"
+        android:layout_weight="1.2"
         android:visibility="invisible">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="发布时间："
-            android:textColor="@color/white" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="4">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="7"
-                android:gravity="left|center"
-                android:text="1111"
-                android:textColor="@color/white" />
-
-
-        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -338,7 +264,7 @@
 
 
         <LinearLayout
-            android:id="@+id/ll_sure"
+            android:id="@+id/task_add_btn_submit"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4">
@@ -388,36 +314,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_weight="1"
+        android:layout_weight="1.2"
         android:visibility="invisible">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="发布时间："
-            android:textColor="@color/white" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="4">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="7"
-                android:gravity="left|center"
-                android:text="1111"
-                android:textColor="@color/white" />
-
-
-        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

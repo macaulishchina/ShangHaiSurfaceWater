@@ -69,7 +69,7 @@ fun showdialog(context: Context,str: String): Unit {
 
 
 //发送请求dialog提示  Activity
-fun Activity.showdialog(dow: String, str: String): Unit {
+fun Activity.showdialog(dow: String?, str: String): Unit {
     if (ld == null) {
         ld = LoadingDialog(this)
         ld!!.setSuccessText("下载成功")

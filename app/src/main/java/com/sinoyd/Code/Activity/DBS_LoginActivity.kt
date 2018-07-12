@@ -83,6 +83,7 @@ class DBS_LoginActivity : SinoBaseActivity() {
                     toast("登陆成功")
                     SharedPreferencesFactory.savedata(activity, "loginId", login.data[0].id)
                     SharedPreferencesFactory.savedata(activity, "phonenumber", et_username.text.toString())
+                    SharedPreferencesFactory.savedata(activity, "userName", login.data[0].name)
                     startActivity<DBS_MainActivity>()
                     this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                     finish()

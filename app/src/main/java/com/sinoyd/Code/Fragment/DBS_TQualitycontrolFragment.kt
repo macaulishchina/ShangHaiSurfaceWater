@@ -6,33 +6,23 @@ import android.view.View
 import android.widget.Toast
 import com.macaulish.top.velvet.util.Logger
 import com.sinoyd.Code.Activity.DBS_AddTaskActivity
-import com.sinoyd.Code.Adapter.TaskInfoAdapter
 import com.sinoyd.Code.Control.showTaskDate
-import com.sinoyd.Code.Control.showlvalarm
 import com.sinoyd.Code.Dialog.DateSelectDialog
-import com.sinoyd.Code.Model.AlarmInfoImpl
 import com.sinoyd.Code.Model.TaskModel
 import com.sinoyd.Code.Until.showdialog
 import com.sinoyd.R
-import com.sinoyd.R.id.*
 import com.sinoyd.environmentsz.Kotlin.getSpecifiedDayAfter
 import com.sinoyd.environmentsz.Kotlin.getSpecifiedDayBefore
 import com.sinoyd.environmentsz.Kotlin.getToday
 import com.sinoyd.environmentsz.Kotlin.getlastweekToday
 import com.sinoyd.frame.frgs.SinoBaseFragment
-import com.sinoyd.frame.task.BaseTask
-import com.sinoyd.frame.util.ToastUtil
 import com.sinoyd.frame.views.FrmListFootView
 import kotlinx.android.synthetic.main.chooselayout.*
-import kotlinx.android.synthetic.main.dbs_alarm_fragment.*
-import kotlinx.android.synthetic.main.dbs_main_fragment.*
 import kotlinx.android.synthetic.main.dbs_quality_control_fragment.*
 import kotlinx.android.synthetic.main.layout_date_select.*
 import kotlinx.android.synthetic.main.titlelayout.*
 import org.jetbrains.anko.onClick
-import org.jetbrains.anko.startActivity
 import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * Created by Sinoyd on 2017/12/18.
@@ -69,8 +59,7 @@ class DBS_TQualitycontrolFragment : SinoBaseFragment(),DateSelectDialog.DateSele
 
     fun requestData(){
         showdialog(activity, "loadshow")
-        taskModel.requestData(pageSize,pageNo,this,TASK_INFO_GET)
-
+        taskModel.requestTaskByPage(pageSize,pageNo,this,TASK_INFO_GET)
     }
 
     private fun setlisteners() {
