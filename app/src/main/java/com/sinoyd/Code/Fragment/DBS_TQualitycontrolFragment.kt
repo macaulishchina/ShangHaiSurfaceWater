@@ -6,8 +6,12 @@ import android.view.View
 import android.widget.Toast
 import com.macaulish.top.velvet.util.Logger
 import com.sinoyd.Code.Activity.DBS_AddTaskActivity
+import com.sinoyd.Code.Adapter.TaskInfoAdapter
+import com.sinoyd.Code.Control.showTaskDate
+import com.sinoyd.Code.Control.showlvalarm
 import com.sinoyd.Code.Dialog.DateSelectDialog
 import com.sinoyd.Code.Model.AlarmInfoImpl
+import com.sinoyd.Code.Model.TaskModel
 import com.sinoyd.Code.Until.showdialog
 import com.sinoyd.R
 import com.sinoyd.R.id.*
@@ -21,12 +25,14 @@ import com.sinoyd.frame.util.ToastUtil
 import com.sinoyd.frame.views.FrmListFootView
 import kotlinx.android.synthetic.main.chooselayout.*
 import kotlinx.android.synthetic.main.dbs_alarm_fragment.*
+import kotlinx.android.synthetic.main.dbs_main_fragment.*
 import kotlinx.android.synthetic.main.dbs_quality_control_fragment.*
 import kotlinx.android.synthetic.main.layout_date_select.*
 import kotlinx.android.synthetic.main.titlelayout.*
 import org.jetbrains.anko.onClick
 import org.jetbrains.anko.startActivity
 import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * Created by Sinoyd on 2017/12/18.
@@ -37,11 +43,13 @@ class DBS_TQualitycontrolFragment : SinoBaseFragment(),DateSelectDialog.DateSele
     var beginTime: String = date.getlastweekToday()
     var endTime: String = date.getToday()
 
+    val taskModel = TaskModel()
     var pageNo: Int = 1
     var pageSize: Int = 10
-    var footLoadView: FrmListFootView? = null
+    lateinit var footLoadView:FrmListFootView
     var last_index: Int = 0
     var total_index: Int = 0
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -55,11 +63,13 @@ class DBS_TQualitycontrolFragment : SinoBaseFragment(),DateSelectDialog.DateSele
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestData()
         Logger.i("质控管理页面")
     }
 
-    fun firstLoaddata(){
+    fun requestData(){
         showdialog(activity, "loadshow")
+        taskModel.requestData(pageSize,pageNo,this,TASK_INFO_GET)
 
     }
 
@@ -115,7 +125,6 @@ class DBS_TQualitycontrolFragment : SinoBaseFragment(),DateSelectDialog.DateSele
 
     }
 
-
     override fun selectDate(startDate: String, endDate: String) {
         Toast.makeText(this.context,"暂无统计数据",Toast.LENGTH_SHORT).show()
     }
@@ -133,6 +142,26 @@ class DBS_TQualitycontrolFragment : SinoBaseFragment(),DateSelectDialog.DateSele
         rb_type.isChecked = true
     }
 
+    override fun requestSuccess(resData: String, TAG: String) {
+        super.requestSuccess(resData, TAG)
+        showdialog(activity, "loadsuccess")
+        //footLoadView!!.visibility = View.GONE
+        when (TAG) {
+            TASK_INFO_GET -> {
+                showTaskDate(activity,lv_qualitycontrol, resData,pageNo)
+            }
+        }
+    }
+
+    override fun requestFailed(resData: String) {
+        super.requestFailed(resData)
+        showdialog(activity, "loadfail")
+        //footLoadView!!.visibility = View.GONE
+        lv_qualitycontrol.adapter = null
+    }
 
 
+    companion object {
+        private val TASK_INFO_GET = "task information get"
+    }
 }

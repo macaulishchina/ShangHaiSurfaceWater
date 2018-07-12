@@ -28,7 +28,7 @@ class NearbyImpl : NearbyModel {
             }
 
             override fun onError(ex: Throwable?, isOnCallback: Boolean) {
-                ShowLog("name").show("onError", params, ex!!.message!!)
+                ShowLog("xhttp").show("onError", params, ex!!.message!!)
                 listener.requestFailed(ex!!.message.toString())
             }
 
@@ -36,7 +36,7 @@ class NearbyImpl : NearbyModel {
             }
 
             override fun onSuccess(result: String?) {
-                ShowLog("name").show("onSuccess", params, result!!)
+                ShowLog("xhttp").show("onSuccess", params, result!!)
                 listener.requestSuccess(result!!, tag)
             }
 

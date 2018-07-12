@@ -1,5 +1,7 @@
 package com.sinoyd.Code.Model
 
+import android.telecom.Call
+import com.macaulish.top.velvet.util.Logger
 import com.sinoyd.Code.Until.HttpListener
 import com.sinoyd.Code.Until.Networkrequestaddress
 import com.sinoyd.Code.Until.ShowLog
@@ -15,36 +17,31 @@ import org.xutils.x
  */
 
 interface TaskModelInterface {
-    fun getFirstPageStatisticData(dimension: String, beginTime: String, endTime: String, pageNo: Int, pageSize: Int, tag: String, listener: HttpListener)
+    fun requestData(pageSize:Int,pageNo:Int,listener: HttpListener,tag: String)
 }
 
 
-class TaskModel : FirstPageStatisticDataModel {
-    override fun getFirstPageStatisticData(dimension: String, beginTime: String, endTime: String, pageNo: Int, pageSize: Int, tag: String, listener: HttpListener) {
-        val params = RequestParams(Networkrequestaddress.GetFirstPageStatisticData + "?" +
-                "dimension=$dimension&" +
-                "beginTime=$beginTime&" +
-                "endTime=$endTime&" +
-                "pageNo=$pageNo&" +
-                "pageSize=$pageSize")
+class TaskModel : TaskModelInterface {
 
-        x.http().get(params, object : Callback.CommonCallback<String> {
+    override fun requestData(pageSize : Int, pageNo : Int,listener : HttpListener,tag : String) {
+        val params = RequestParams("${Networkrequestaddress.GetTaskInfo}?pageSize=$pageSize&pageNo=$pageNo")
+        x.http().get(params,object : Callback.CommonCallback<String>{
             override fun onFinished() {
+                ShowLog("xhttp").show("onFinished", params,null)
             }
 
             override fun onError(ex: Throwable?, isOnCallback: Boolean) {
-                ShowLog("name").show("onError", params, ex!!.message!!)
-                listener.requestFailed(ex!!.message.toString())
+                ShowLog("xhttp").show("onError", params, ex!!.message)
+                listener.requestFailed(ex.message.toString())
             }
 
             override fun onCancelled(cex: Callback.CancelledException?) {
             }
 
             override fun onSuccess(result: String?) {
-                ShowLog("name").show("onSuccess", params, result!!)
-                listener.requestSuccess(result!!, tag)
+                ShowLog("xhttp").show("onSuccess", params, result)
+                listener.requestSuccess(result?:"", tag)
             }
-
         })
     }
 

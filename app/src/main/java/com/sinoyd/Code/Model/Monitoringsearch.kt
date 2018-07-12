@@ -57,7 +57,7 @@ class MonitoringsearchImpl : MonitoringsearchModel {
 
         x.http().get(params, object : Callback.CommonCallback<String> {
             override fun onSuccess(result: String?) {
-                ShowLog("name").show("onsuccess", params, result!!)
+                ShowLog("xhttp").show("onsuccess", params, result!!)
 
                 listener.requestSuccess(result!!, tag)
             }
@@ -67,7 +67,7 @@ class MonitoringsearchImpl : MonitoringsearchModel {
             }
 
             override fun onError(ex: Throwable?, isOnCallback: Boolean) {
-                ShowLog("name").show("onError", params, ex!!.message!!)
+                ShowLog("xhttp").show("onError", params, ex!!.message!!)
                 listener.requestFailed(ex!!.message.toString())
             }
 

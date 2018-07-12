@@ -85,7 +85,7 @@ object Networkrequestaddress {
     val GetMonitoringsearch = SERVER_URL + "/monitoring/search"
 
     /**任务收发**/
-    val GetTaskInfo = SERVER_URL + "/api/v1/mobile/app/AppTaskInfo"    //?pageSize=10&pageNo=1
+    val GetTaskInfo = SERVER_URL + "/AppTaskInfo"    //?pageSize=10&pageNo=1
 
 
 

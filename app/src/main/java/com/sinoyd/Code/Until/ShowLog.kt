@@ -16,7 +16,7 @@ import org.json.JSONObject
 
 class ShowLog(var name: String) {
     val LINE_SEPARATOR = System.getProperty("line.separator")
-    fun show(issuccess: String, params: RequestParams, result: String) {
+    fun show(issuccess: String, params: RequestParams, result: String?) {
         var url = params.uri
         for ((n, item) in params.queryStringParams.withIndex()) {
             Log.i(name, "请求参数: ${item.key}=${item.value}")
@@ -28,7 +28,7 @@ class ShowLog(var name: String) {
         }
         Log.d(name, "请求地址：$url")
         Log.d(name, "返回状态：$issuccess")
-        printJson("返回结果；", result)
+        printJson("返回结果；", result ?: "")
         Log.d(name, "                                                                   ")
     }
 
