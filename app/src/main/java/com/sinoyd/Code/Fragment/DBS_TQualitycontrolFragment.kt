@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import com.macaulish.top.velvet.util.Logger
 import com.sinoyd.Code.Activity.DBS_AddTaskActivity
+import com.sinoyd.Code.Control.showCheckDate
 import com.sinoyd.Code.Control.showTaskDate
 import com.sinoyd.Code.Dialog.DateSelectDialog
 import com.sinoyd.Code.Model.TaskModel
@@ -34,11 +35,23 @@ class DBS_TQualitycontrolFragment : SinoBaseFragment(),DateSelectDialog.DateSele
     var endTime: String = date.getToday()
 
     val taskModel = TaskModel()
-    var pageNo: Int = 1
-    var pageSize: Int = 10
+
+    /**
+     * 任务管理分页数据
+     */
+    var pageTaskNo: Int = 1
+    var pageTaskSize: Int = 10
+    var lastTaskModel: Int = 0
+    var totalTaskIndex: Int = 0
+    /**
+     * 考核管理分页数据
+     */
+    var pageCheckNo: Int = 1
+    var pageCheckSize: Int = 10
+    var lastCheckIndex: Int = 0
+    var totalCheckIndex: Int = 0
+
     lateinit var footLoadView:FrmListFootView
-    var last_index: Int = 0
-    var total_index: Int = 0
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -59,7 +72,9 @@ class DBS_TQualitycontrolFragment : SinoBaseFragment(),DateSelectDialog.DateSele
 
     fun requestData(){
         showdialog(activity, "loadshow")
-        taskModel.requestTaskByPage(pageSize,pageNo,this,TASK_INFO_GET)
+        Logger.i("$beginTime--$endTime")
+        taskModel.requestTaskByPage(pageTaskSize,pageTaskNo,this,TASK_INFO_GET)
+        taskModel.requestCheckByPage(pageCheckSize,pageCheckNo,beginTime,endTime,this, CHECK_INFO_GET)
     }
 
     private fun setlisteners() {
@@ -69,7 +84,10 @@ class DBS_TQualitycontrolFragment : SinoBaseFragment(),DateSelectDialog.DateSele
         tv_date_startTime.onClick {
             tv_date_startTime.text = date.getSpecifiedDayBefore(tv_date_startTime.text.toString())
             beginTime = tv_date_startTime.text.toString()
-            Toast.makeText(this.context,"暂无统计数据",Toast.LENGTH_SHORT).show()
+            Logger.i("$beginTime--$endTime")
+            showdialog(activity, "loadshow")
+            taskModel.requestCheckByPage(pageCheckSize,pageCheckNo,beginTime,endTime,this, CHECK_INFO_GET)
+            //Toast.makeText(this.context,"暂无统计数据",Toast.LENGTH_SHORT).show()
 
         }
 
@@ -84,7 +102,9 @@ class DBS_TQualitycontrolFragment : SinoBaseFragment(),DateSelectDialog.DateSele
         tv_date_endTime.onClick {
             tv_date_endTime.text = date.getSpecifiedDayAfter(tv_date_endTime.text.toString())
             endTime = tv_date_endTime.text.toString()
-            Toast.makeText(this.context,"暂无统计数据",Toast.LENGTH_SHORT).show()
+            showdialog(activity, "loadshow")
+            taskModel.requestCheckByPage(pageCheckSize,pageCheckNo,beginTime,endTime,this, CHECK_INFO_GET)
+            //Toast.makeText(this.context,"暂无统计数据",Toast.LENGTH_SHORT).show()
 
         }
 
@@ -113,9 +133,12 @@ class DBS_TQualitycontrolFragment : SinoBaseFragment(),DateSelectDialog.DateSele
         }
 
     }
-
     override fun selectDate(startDate: String, endDate: String) {
-        Toast.makeText(this.context,"暂无统计数据",Toast.LENGTH_SHORT).show()
+        tv_date_startTime.text = startDate
+        tv_date_endTime.text = endDate
+        beginTime = startDate
+        endTime = endDate
+        taskModel.requestCheckByPage(pageCheckSize,pageCheckNo,beginTime,endTime,this, CHECK_INFO_GET)
     }
 
     override fun setView() {
@@ -137,7 +160,11 @@ class DBS_TQualitycontrolFragment : SinoBaseFragment(),DateSelectDialog.DateSele
         //footLoadView!!.visibility = View.GONE
         when (TAG) {
             TASK_INFO_GET -> {
-                showTaskDate(activity,lv_qualitycontrol, resData,pageNo)
+                Logger.i("请求任务获得的数据：$resData")
+                showTaskDate(activity,lv_qualitycontrol, resData,pageTaskNo)
+            }
+            CHECK_INFO_GET->{
+                showCheckDate(activity,lv_check,resData,pageCheckNo)
             }
         }
     }
@@ -152,5 +179,6 @@ class DBS_TQualitycontrolFragment : SinoBaseFragment(),DateSelectDialog.DateSele
 
     companion object {
         private val TASK_INFO_GET = "task information get"
+        private val CHECK_INFO_GET = "check information get"
     }
 }

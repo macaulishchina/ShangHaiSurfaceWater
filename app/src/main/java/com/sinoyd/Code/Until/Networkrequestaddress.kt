@@ -96,4 +96,8 @@ object Networkrequestaddress {
     /**用户站点信息**/
     val GroupPointInfo = HOST_POST + "/api/v1/BaseData/PointInfoGroupByOperator"    //?Operator=e2e16546-d663-42e6-9996-9ba632665101
 
+    /**考核统计获取**/
+    val GetCheckInfo =     SERVER_URL + "/EvatlSatic"   //?pageSize=10&pageNo=1&stime=2018-7-1&etime=2018-7-10
+
+
 }

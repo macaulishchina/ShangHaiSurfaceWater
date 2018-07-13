@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:textSize="12sp"
+        android:id="@+id/item_tv_check_integrator"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="运维商"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:textSize="12sp"
+        android:id="@+id/item_tv_check_sampRate"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="数据捕获率"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/item_tv_check_workRate"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="出勤率"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+
+    <TextView
+        android:textSize="12sp"
+        android:id="@+id/item_tv_check_compRate"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="任务完成率"
+        android:textColor="@color/white" />
+
+
+
+
+</LinearLayout>

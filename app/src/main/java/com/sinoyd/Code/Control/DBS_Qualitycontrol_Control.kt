@@ -3,8 +3,10 @@ package com.sinoyd.Code.Control
 import android.app.Activity
 import android.widget.ListView
 import com.sinoyd.Code.Adapter.AlarmInfoAdapter
+import com.sinoyd.Code.Adapter.CheckInfoAdapter
 import com.sinoyd.Code.Adapter.TaskInfoAdapter
 import com.sinoyd.Code.DataClass.AlarmInfo
+import com.sinoyd.Code.DataClass.CheckInfo
 import com.sinoyd.Code.DataClass.TaskInfo
 import com.sinoyd.Code.Model.LoginModel
 import com.sinoyd.Code.Until.HttpListener
@@ -23,6 +25,7 @@ import org.xutils.x
  * 描述： com.sinoyd.Code.Control
  */
 var taskInfoList: ArrayList<TaskInfo.DataBean.Task> = ArrayList()
+var checkInfoList: ArrayList<CheckInfo.DataBean.Check> = ArrayList()
 
 fun showTaskDate(activity: Activity, taskLV: ListView, resData: String, pageNo: Int) {
     var taskInfo:TaskInfo
@@ -42,4 +45,24 @@ fun showTaskDate(activity: Activity, taskLV: ListView, resData: String, pageNo: 
     }
     taskInfoList.addAll(taskInfo.data.list)
     taskLV.adapter = TaskInfoAdapter(activity, taskInfoList)
+}
+
+fun showCheckDate(activity: Activity, checkLV: ListView, resData: String, pageNo: Int) {
+    var checkInfo:CheckInfo
+
+    try {
+        checkInfo = gson.fromJson(resData, CheckInfo::class.java)
+    } catch (e: Exception) {
+        activity.toast("taskInfo_JSON解析失败")
+        return
+    }
+    if (checkInfo.data.list.isEmpty()) {
+        activity.toast("暂无数据更新")
+        return
+    }
+    if (pageNo == 1) {
+        checkInfoList.clear()
+    }
+    checkInfoList.addAll(checkInfo.data.list)
+    checkLV.adapter = CheckInfoAdapter(activity, checkInfoList)
 }

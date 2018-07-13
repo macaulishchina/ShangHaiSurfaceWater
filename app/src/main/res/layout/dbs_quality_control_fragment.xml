@@ -197,7 +197,7 @@
         </LinearLayout>
 
         <ListView
-            android:id="@+id/lv_tongji"
+            android:id="@+id/lv_check"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@null"></ListView>
