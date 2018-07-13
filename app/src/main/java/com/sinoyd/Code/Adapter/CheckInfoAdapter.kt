@@ -34,7 +34,6 @@ class CheckInfoAdapter(var context: Context, var list: ArrayList<CheckInfo.DataB
 
         holder.item_tv_check_integrator.text = list[p0].InstrumentIntegrator
         holder.item_tv_check_sampRate.text = list[p0].SampRate
-        holder.item_tv_check_workRate.text = "--"
         holder.item_tv_check_compRate.text = list[p0].CompRate
 
         if (p0 % 2 == 0) {
@@ -49,7 +48,6 @@ class CheckInfoAdapter(var context: Context, var list: ArrayList<CheckInfo.DataB
     internal inner class ViewHolder(view: View) {
         var item_tv_check_integrator: TextView = view.findViewById(R.id.item_tv_check_integrator)
         var item_tv_check_sampRate: TextView = view.findViewById(R.id.item_tv_check_sampRate)
-        var item_tv_check_workRate: TextView = view.findViewById(R.id.item_tv_check_workRate)
         var item_tv_check_compRate: TextView = view.findViewById(R.id.item_tv_check_compRate)
 
     }

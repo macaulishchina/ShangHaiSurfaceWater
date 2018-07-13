@@ -85,19 +85,11 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="站点名称"
                     android:textColor="@color/white"
                     android:textSize="13dp" />
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:padding="5dp"
-                    android:src="@drawable/icon_arrow_bot"
-                    android:tint="@color/white" />
 
             </LinearLayout>
 
@@ -140,11 +132,16 @@
 
         </LinearLayout>
 
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/quality_control_rf_tasklist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <ListView
-            android:id="@+id/lv_qualitycontrol"
+            android:id="@+id/lv_task"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@null"></ListView>
+            android:divider="@null"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
 
     </LinearLayout>
 
@@ -179,13 +176,6 @@
                 android:text="数据捕获率"
                 android:textColor="@color/white" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="出勤率"
-                android:textColor="@color/white" />
 
             <TextView
                 android:layout_width="0dp"
@@ -196,11 +186,16 @@
                 android:textColor="@color/white" />
         </LinearLayout>
 
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/quality_control_rf_checklist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <ListView
             android:id="@+id/lv_check"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@null"></ListView>
+            android:divider="@null"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
 
 
     </LinearLayout>

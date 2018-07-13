@@ -68,7 +68,7 @@ class DBS_TabWaterqualityweeklyFragment : SinoBaseFragment() {
     override fun requestFailed(resData: String) {
         super.requestFailed(resData)
         showdialog(activity, "loadfail")
-        lv_main.adapter = null
+        lv_weekly.adapter = null
     }
 
     override fun onDestroy() {

@@ -167,14 +167,24 @@
             android:layout_weight="4"
             android:background="@drawable/ll_shape_bg_gray">
 
-            <EditText
+            <TextView
                 android:background="@null"
                 android:id="@+id/task_add_tv_deal_man"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="left|center"
+                android:gravity="start|center"
                 android:text=""
+                android:visibility="gone"
+                android:textColor="@color/white" />
+
+            <Spinner
+
+                android:id="@+id/task_add_sp_deal_man"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="start|center"
+                android:layout_weight="1"
                 android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>

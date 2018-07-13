@@ -1,17 +1,19 @@
 package com.sinoyd.Code.Activity
 
 import android.os.Bundle
-import android.text.method.ScrollingMovementMethod
 import android.view.Gravity
-import android.widget.Toast
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import com.google.gson.reflect.TypeToken
 import com.jaygoo.selector.MultiSelectPopWindow
 import com.macaulish.top.coconut.util.DateKits
 import com.macaulish.top.velvet.util.Logger
 import com.macaulish.top.velvet.util.Toaster
 import com.sinoyd.Code.Control.gson
+import com.sinoyd.Code.DataClass.IntegratorInfo
 import com.sinoyd.Code.DataClass.PointInfo
-import com.sinoyd.Code.DataClass.TaskInfo
 import com.sinoyd.Code.Dialog.DateSelectDialog
 import com.sinoyd.Code.Model.TaskModel
 import com.sinoyd.Code.Until.DisplayorhideSoftkeyboard
@@ -22,6 +24,8 @@ import com.sinoyd.environmentsz.Kotlin.getToday
 import com.sinoyd.environmentsz.Kotlin.getnextweekToday
 import com.sinoyd.frame.actys.SinoBaseActivity
 import kotlinx.android.synthetic.main.activity_dbs__add_task.*
+import kotlinx.android.synthetic.main.dbs_quality_control_fragment.*
+import kotlinx.android.synthetic.main.item_integrator_layout.*
 import kotlinx.android.synthetic.main.titlelayout.*
 import org.jetbrains.anko.onClick
 import java.util.*
@@ -30,6 +34,7 @@ class DBS_AddTaskActivity : SinoBaseActivity(), DateSelectDialog.DateSelectListe
 
     val dataManager = TaskModel()
     var pointsInfo = ArrayList<PointInfo>()
+    var integratorArray = ArrayList<IntegratorInfo>()
 
     override fun selectDate(startDate: String, endDate: String) {
         task_add_tv_finish_date.text = "$startDate--$endDate"
@@ -46,12 +51,13 @@ class DBS_AddTaskActivity : SinoBaseActivity(), DateSelectDialog.DateSelectListe
         setContentView(R.layout.activity_dbs__add_task)
         setView()
         setlisteners()
-        getPoints()
+        getFormInfo()
     }
 
-    fun getPoints(){
+    fun getFormInfo(){
         showdialog(activity, "loadshow")
         dataManager.requestPointInfo(SharedPreferencesFactory.getdata(this,"loginId"),this,REQUEST_POINT_INFO)
+        dataManager.requestIntergratorInfo(this, REQUEST_INTEGRATOR_INFO)
     }
 
     override fun setView() {
@@ -107,6 +113,17 @@ class DBS_AddTaskActivity : SinoBaseActivity(), DateSelectDialog.DateSelectListe
             dateSelectDialog.show()
         }
 
+        task_add_sp_deal_man.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                //Toaster.shortToast(this@DBS_AddTaskActivity,"position = $p2")
+                task_add_tv_deal_man.text  = integratorArray[p2].name
+            }
+
+        }
         task_add_btn_submit.onClick {
             if(task_add_et_task_name.text.trim().isEmpty()
                     ||task_add_tv_point_name.text.trim().isEmpty()
@@ -142,9 +159,17 @@ class DBS_AddTaskActivity : SinoBaseActivity(), DateSelectDialog.DateSelectListe
                     pointsInfo = gson.fromJson<ArrayList<PointInfo>>(resData, object : TypeToken<ArrayList<PointInfo>>() {}.type)
                 }catch (e:Exception){
                     Toaster.shortToast(this,"站点信息JSON解析失败")
-                    Logger.e("站点个数 = ${pointsInfo.size}")
-                    Logger.e("Jaon = $resData")
-
+                }
+            }
+            REQUEST_INTEGRATOR_INFO ->{
+                Logger.i("加载服务商数据成功")
+                try{
+                    integratorArray = gson.fromJson<ArrayList<IntegratorInfo>>(resData, object : TypeToken<ArrayList<IntegratorInfo>>(){}.type)
+                    val adapter = ArrayAdapter<IntegratorInfo>(this,R.layout.item_integrator_layout,R.id.item_spinner_integrator, integratorArray)
+                    adapter.setDropDownViewResource(R.layout.item_dropdown_style)
+                    task_add_sp_deal_man.adapter = adapter
+                }catch (e:Exception){
+                    Toaster.shortToast(this,"服务商信息JSON解析失败")
                 }
             }
             UPLOAD_NEW_TASK ->{
@@ -161,8 +186,10 @@ class DBS_AddTaskActivity : SinoBaseActivity(), DateSelectDialog.DateSelectListe
     }
 
 
+
     companion object {
         val REQUEST_POINT_INFO = "request for points"
         val UPLOAD_NEW_TASK = "update new task"
+        val REQUEST_INTEGRATOR_INFO = "request for integrators"
     }
 }

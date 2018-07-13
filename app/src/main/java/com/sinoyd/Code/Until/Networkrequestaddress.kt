@@ -11,6 +11,7 @@ object Networkrequestaddress {
     var RELEASE: Boolean = false
     var SERVER_URL = ""
     var HOST_POST = ""
+    var TEMP_URL = ""
 
     val Formaladdress: String = "http://192.168.11.178:9527/api/v1/mobile/app"
     val HttpurlFormaladdress: String = "http://192.168.11.178:9527"
@@ -21,7 +22,11 @@ object Networkrequestaddress {
     init {
         SERVER_URL = if (RELEASE) Formaladdress else Testaddress
         HOST_POST = if (RELEASE) HttpurlFormaladdress else Httpurltest
+
+        //临时测试接口 192.168.90.31:1888
+        TEMP_URL = "http://192.168.90.31:1888/api/v1/mobile/app"
     }
+
 
 
     /**天气预报接口***/
@@ -94,10 +99,14 @@ object Networkrequestaddress {
     val UpLoadTask = SERVER_URL + "/task/BuildTask"   //?Task=&Id=&Time=&Resperson=&Creater=&CreatDateTime=
 
     /**用户站点信息**/
-    val GroupPointInfo = HOST_POST + "/api/v1/BaseData/PointInfoGroupByOperator"    //?Operator=e2e16546-d663-42e6-9996-9ba632665101
+    val GroupPointInfo = HOST_POST + "/api/v1/BaseData/PointInfo"    //?Operator=e2e16546-d663-42e6-9996-9ba632665101
 
     /**考核统计获取**/
     val GetCheckInfo =     SERVER_URL + "/EvatlSatic"   //?pageSize=10&pageNo=1&stime=2018-7-1&etime=2018-7-10
+
+    /**获取运维商**/
+    val GetIntegrator = HOST_POST + "/api/v1/BaseData/PointType?main=Operate"
+
 
 
 }
