@@ -120,7 +120,7 @@ class DBS_TQualitycontrolFragment : SinoBaseFragment(),DateSelectDialog.DateSele
         add_task.onClick {
             var intent = Intent()
             intent.setClass(activity, DBS_AddTaskActivity::class.java)
-            startActivityForResult(intent, 1000)
+            startActivityForResult(intent, ACTIVITY_START_CODE)
         }
 
 
@@ -233,9 +233,19 @@ class DBS_TQualitycontrolFragment : SinoBaseFragment(),DateSelectDialog.DateSele
     }
 
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when(requestCode){
+            ACTIVITY_START_CODE->{
+                loadTaskData()
+            }
+
+        }
+    }
 
     companion object {
         private val TASK_INFO_GET = "task information get"
         private val CHECK_INFO_GET = "check information get"
+        private val ACTIVITY_START_CODE = 1000
     }
 }

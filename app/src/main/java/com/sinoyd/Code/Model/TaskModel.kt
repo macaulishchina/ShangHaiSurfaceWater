@@ -65,12 +65,12 @@ class TaskModel : TaskModelInterface {
         })
     }
 
-    override fun uploadTask(taskName: String, pointIds: String, finishDate: String, dealMan: String, publisher: String, publishTime: String, tag: String, listener: HttpListener) {
+    override fun uploadTask(taskName: String, pointIds: String, finishDate: String, dealManGuid: String, publisher: String, publishTime: String, tag: String, listener: HttpListener) {
 
         //?Task=&Id=&Time=&Resperson=&Creater=&CreatDateTime=
-        //http://192.168.90.177:8888/api/v1/mobile/app/task/BuildTask?Task=test&Id=5,6,7,7&Time=2018/07/13--2018/07/20&Resperson=你猜&Creater=程晨&CreatDateTime=2018/07/13 10:17:32
+        //http://192.168.90.177:8888/api/v1/mobile/app/task/BuildTask?Task=test&Id=5,6,7,7&Time=2018/07/13--2018/07/20&Resperson=guid&Creater=程晨&CreatDateTime=2018/07/13 10:17:32
 
-        val params = RequestParams("${Networkrequestaddress.UpLoadTask}?Task=$taskName&id=$pointIds&Time=$finishDate&Resperson=$dealMan&Creater=$publisher&CreatDateTime=$publishTime")
+        val params = RequestParams("${Networkrequestaddress.UpLoadTask}?Task=$taskName&id=$pointIds&Time=$finishDate&Resperson=$dealManGuid&Creater=$publisher&CreatDateTime=$publishTime")
 //        params.addBodyParameter("Task",taskName)
 //        params.addBodyParameter("id",pointIds)
 //        params.addBodyParameter("Time",finishDate)

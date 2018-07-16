@@ -36,4 +36,5 @@
     <color name="itemcolor">#3fff</color>
     <color name="itemcolor2">#0fff</color>
 
+    <color name="theme_blue"></color>
 </resources>

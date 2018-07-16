@@ -34,7 +34,7 @@ class PJFactorsImpl : PJFactorsModel {
             }
 
             override fun onError(ex: Throwable?, isOnCallback: Boolean) {
-                ShowLog("xhttp").show("onError", params, ex!!.message!!)
+                ShowLog("xhttp").show("onError", params, ex?.message)
                 listener.requestFailed(ex!!.message.toString())
             }
 

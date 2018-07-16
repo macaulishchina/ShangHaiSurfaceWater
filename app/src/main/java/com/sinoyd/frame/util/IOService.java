@@ -19,6 +19,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 
+import com.macaulish.top.velvet.util.UriKits;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -163,8 +165,9 @@ public class IOService {
     public static Intent getExcelFileIntent(String param, Context con) {
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.addCategory("android.intent.category.DEFAULT");
-        intent.addFlags(268435456);
-        Uri uri = Uri.fromFile(new File(param));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Uri uri = new UriKits(con,con.getApplicationInfo().packageName+".Provider").getUriByFilePath(param);
+        //Uri uri = Uri.fromFile(new File(param));
         intent.setDataAndType(uri, "application/vnd.ms-excel");
         return intent;
     }
@@ -251,7 +254,8 @@ public class IOService {
 
                 con.startActivity(e1);
             } catch (Exception var9) {
-                ToastUtil.showShort(con, "没有适合的程序打开此文件");
+
+                ToastUtil.showShort(con, "没有适合的程序打开此文件1");
             }
         }
 

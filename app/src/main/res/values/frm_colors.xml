@@ -42,7 +42,7 @@
     <color name="dark">#000000</color>œ
     <color name="red">#FF0000</color>
     <color name="gray">#808080</color>
-    <color name="transparent">#00000000</color>
+    <color name="transparent">#00FFFFFF</color>
     <color name="solid_blue">#0000ff</color>
     <color name="solid_green">#f0f0</color>
     <color name="solid_yellow">#ffffff00</color>

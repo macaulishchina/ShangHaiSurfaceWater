@@ -8,6 +8,7 @@ package com.sinoyd.Code.Until
  */
 
 object Networkrequestaddress {
+
     var RELEASE: Boolean = false
     var SERVER_URL = ""
     var HOST_POST = ""
@@ -22,12 +23,9 @@ object Networkrequestaddress {
     init {
         SERVER_URL = if (RELEASE) Formaladdress else Testaddress
         HOST_POST = if (RELEASE) HttpurlFormaladdress else Httpurltest
-
         //临时测试接口 192.168.90.31:1888
         TEMP_URL = "http://192.168.90.31:1888/api/v1/mobile/app"
     }
-
-
 
     /**天气预报接口***/
     val GetWeather = "http://apifreelat.market.alicloudapi.com/whapi/json/aliweather/briefforecast3days"
@@ -106,7 +104,5 @@ object Networkrequestaddress {
 
     /**获取运维商**/
     val GetIntegrator = HOST_POST + "/api/v1/BaseData/PointType?main=Operate"
-
-
 
 }

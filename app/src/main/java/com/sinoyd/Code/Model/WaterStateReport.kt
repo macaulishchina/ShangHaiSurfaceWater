@@ -15,14 +15,13 @@ import org.xutils.x
  */
 
 interface WaterStateReportModel {
-    fun getWaterStateReport(tag: String, listener: HttpListener)
+    fun getWaterStateReport(pageNo: Int, pageSize: Int, tag: String, listener: HttpListener)
 }
 
 
 class WaterStateReportImpl : WaterStateReportModel {
-    override fun getWaterStateReport(tag: String, listener: HttpListener) {
-        val params = RequestParams(Networkrequestaddress.GetWaterStateReport)
-
+    override fun getWaterStateReport(pageNo: Int, pageSize: Int, tag: String, listener: HttpListener) {
+        val params = RequestParams(Networkrequestaddress.GetWaterStateReport+"?pageSize=$pageSize&pageNo=$pageNo")
         x.http().get(params, object : Callback.CommonCallback<String> {
             override fun onFinished() {
             }

@@ -44,6 +44,7 @@ class DBS_AddTaskActivity : SinoBaseActivity(), DateSelectDialog.DateSelectListe
     var beginTime: String = date.getToday()
     var endTime: String = date.getnextweekToday()
     var selectPointSId = ArrayList<Int>()
+    var dealmanGuid = ""
 
     override
     fun onCreate(savedInstanceState: Bundle?) {
@@ -115,12 +116,14 @@ class DBS_AddTaskActivity : SinoBaseActivity(), DateSelectDialog.DateSelectListe
 
         task_add_sp_deal_man.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(p0: AdapterView<*>?) {
-
+                task_add_tv_deal_man.text  = ""
             }
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 //Toaster.shortToast(this@DBS_AddTaskActivity,"position = $p2")
                 task_add_tv_deal_man.text  = integratorArray[p2].name
+                dealmanGuid = integratorArray[p2].RowGuid
+
             }
 
         }
@@ -144,7 +147,7 @@ class DBS_AddTaskActivity : SinoBaseActivity(), DateSelectDialog.DateSelectListe
                 val publisher = task_add_tv_publish_man.text.toString()
                 val publishTime = task_add_tv_publish_datetime.text.toString()
                 showdialog(activity, "loadshow")
-                dataManager.uploadTask(taskName,pointIds,finishDate,dealMan,publisher,publishTime, UPLOAD_NEW_TASK,this)
+                dataManager.uploadTask(taskName,pointIds,finishDate,dealmanGuid,publisher,publishTime, UPLOAD_NEW_TASK,this)
             }
         }
     }
@@ -175,6 +178,7 @@ class DBS_AddTaskActivity : SinoBaseActivity(), DateSelectDialog.DateSelectListe
             UPLOAD_NEW_TASK ->{
                 Logger.i("新建任务上传成功")
                 Toaster.shortToast(this,"新建成功")
+                finish()
             }
         }
     }

@@ -3,8 +3,13 @@ package com.sinoyd.Code.Until;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.net.Uri;
+import android.os.Environment;
 import android.os.Handler;
 
+import com.macaulish.top.velvet.util.Logger;
+import com.macaulish.top.velvet.util.StorageKits;
+import com.macaulish.top.velvet.util.UriKits;
 import com.sinoyd.frame.util.AppUtil;
 import com.sinoyd.frame.util.IOHelp;
 import com.sinoyd.frame.util.LogUtil;
@@ -17,6 +22,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -28,6 +34,7 @@ import java.io.InputStream;
 public class DownloadUtil extends Thread{
     private String urlStr;
     private String filePath;
+    private Uri fileUri;
     private Handler handler = new Handler();
     private ProgressDialog progressDialog;
     private long total;
@@ -43,7 +50,9 @@ public class DownloadUtil extends Thread{
     public DownloadUtil(Context con, String urlStr) {
         this.urlStr = urlStr;
         String filename = urlStr.substring(urlStr.lastIndexOf("/")+1);
-        this.filePath = AppUtil.getStoragePath() + "/attach/" + filename;
+
+        this.filePath = StorageKits.INSTANCE.getExternalPublicDir(Environment.DIRECTORY_DOCUMENTS).getAbsolutePath()+File.separator+"yd"+File.separator+filename;
+        //AppUtil.getStoragePath() + "/attach/" + filename;
         this.con = con;
         this.progressDialog = new ProgressDialog(con);
         this.progressDialog.setProgressStyle(1);
@@ -169,7 +178,13 @@ public class DownloadUtil extends Thread{
                         f.delete();
                     }
                 } else {
-                    IOHelp.doOpenFile(DownloadUtil.this.con, DownloadUtil.this.filePath);
+                    //fileUri = new UriKits(con,con.getApplicationContext().getPackageName()+".Provider").getUriByFilePath(filePath);
+                    File file = new File(filePath);
+                    if(file.isFile() && file.exists()) {
+                        IOHelp.openFile2(DownloadUtil.this.con, new File(filePath));
+                    }else {
+                        Logger.INSTANCE.d("can open file "+filePath);
+                    }
                 }
 
             }

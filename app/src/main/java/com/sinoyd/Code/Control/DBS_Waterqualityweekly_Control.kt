@@ -13,24 +13,28 @@ import org.jetbrains.anko.toast
  * 版权： 江苏远大信息股份有限公司
  * 描述： com.sinoyd.Code.Control
  */
+val list: ArrayList<Report> = ArrayList()
 
-fun showlvweekyly(activity: Activity, lv_weekly: ListView, reData: String) {
-    var adapter: WaterStateReportAdapter? = null
-    var waterStateReport: WaterStateReport = WaterStateReport()
-    var list: ArrayList<Report> = ArrayList()
+fun showlvweekyly(activity: Activity, lv_weekly: ListView, reData: String,pageNo:Int) {
+    val waterStateReport: WaterStateReport
     try {
         waterStateReport = gson.fromJson(reData, WaterStateReport::class.java)
     } catch (e: Exception) {
         activity.toast("waterStateReport_JSON解析出错")
         return
     }
+    if(pageNo == 1){
+        list.clear()
+    }
     for (item in waterStateReport.data.list) {
         val report = Report()
+        report.downloaded = false
+        report.uri = null
         report.name = item.name
         report.url = item.url
         list.add(report)
     }
 
-    adapter = WaterStateReportAdapter(activity, list)
-    lv_weekly.adapter = adapter
+    lv_weekly.adapter = WaterStateReportAdapter(activity, list)
+
 }
